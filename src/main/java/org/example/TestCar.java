@@ -26,6 +26,8 @@ public class TestCar extends Car {
         car4.changeColor ("silver");
         car5.changeColor ("gold");
 
+        //Car.printCars(car1, car2, car3, car4, car5);
+
     }
 }
 

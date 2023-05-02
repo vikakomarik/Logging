@@ -5,7 +5,7 @@ import org.testng.internal.protocols.Input;
 import java.util.Objects;
 
 public class Car {
-    public String brand;
+    public String brand = null;
     public String color;
     public double enginePower;
     public int maxSpeed;
@@ -43,30 +43,14 @@ public class Car {
         }
     }
 
-    public void setColor(String black) {
-    }
-
-    public class Main {
-        public void main(String[] args) {
-
-            Car[] cars = new Car[3];
-            for (int i = 0; i < 3; i++) {
-                cars[i] = new Car("Volvo", "red", 3.0, 300);
-            }
-
-            System.out.println(Car.counter);
-
-            Car.printCars(cars);
-        }
-
-    }
     public void changeColor(String newColor) {
-        this.color = newColor;
-        if(newColor == "gold") {
+
+        if (Objects.equals(newColor, "gold")) {
             LOG.error("New car color is: {}", newColor);
+        } else {
+            this.color = newColor;
+            LOG.info("New car color is: {}", newColor);
         }
-        else
-        LOG.info("New car color is: {}", newColor);
     }
 
     private final Logger LOG = LoggerFactory.getLogger(TestCar.class);
